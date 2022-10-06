@@ -17,7 +17,7 @@
   <tbody>
     <?php
 $servername = "localhost";
-$username = "syuser";
+$username = "sanaoucr_syuser";
 $password = "zxvf=zsw;*iY";
 $dbname = "sanaoucr_homework3-MIS4013";
 
