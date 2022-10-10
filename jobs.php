@@ -1,4 +1,4 @@
-    <h1>You wanna find jobs?!!</h1>
+    <h1 style="background-color:powderblue; text-align:center;">STUDENT JOBS</h1>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
