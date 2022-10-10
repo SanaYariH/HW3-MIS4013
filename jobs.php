@@ -7,12 +7,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Instructors</h1>
+    <h1>Student Jobs</h1>
 <table class="table table-striped">
   <thead>
     <tr>
       <th>ID</th>
-      <th>Name</th>
+      <th>Job Title</th>
       <th></th>
       <th></th>
     </tr>
@@ -31,29 +31,13 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT instructor_id, instructor_name from instructor";
+$sql = "SELECT job_id, job_title from jobs";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
 ?>
-  <tr>
-    <td><?=$row["instructor_id"]?></td>
-    <td><a href="instructor-section.php?id=<?=$row["instructor_id"]?>"><?=$row["instructor_name"]?></a></td>
-    <td>
-      <form method="post" action="instructor-edit.php">
-        <input type="hidden" name="iid" value="<?=$row["instructor_id"]?>" />
-        <input type="submit" value="Edit" class="btn" />
-      </form>
-    </td>
-    <td>
-      <form method="post" action="instructor-delete-save.php">
-        <input type="hidden" name="iid" value="<?=$row["instructor_id"]?>" />
-        <input type="submit" value="Delete" class="btn" onclick="confirm('Are you sure?')" />
-      </form>
-    </td>
-  </tr>
 <?php
   }
 } else {
@@ -64,7 +48,6 @@ $conn->close();
   </tbody>
     </table>
     <br />
-    <a href="instructor-add.php" class="btn btn-primary">Add New</a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   </body>
 </html>
